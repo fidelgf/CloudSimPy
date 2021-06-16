@@ -15,7 +15,7 @@ from playground.DAG.algorithm.heuristics.max_weight import MaxWeightAlgorithm
 
 from playground.DAG.algorithm.DeepJS.DRL import RLAlgorithm
 from playground.DAG.algorithm.DeepJS.agent import Agent
-from playground.DAG.algorithm.DeepJS.brain import BrainSmall
+from playground.DAG.algorithm.DeepJS.brain import BrainSmall,LSTMBrain,Brain
 from playground.DAG.algorithm.DeepJS.reward_giver import MakespanRewardGiver
 
 from playground.DAG.utils.csv_reader import CSVReader
@@ -34,6 +34,7 @@ n_iter = 30
 jobs_csv = '../jobs_files/job.csv'
 
 brain = BrainSmall(14)
+#brain = LSTMBrain(6)
 reward_giver = MakespanRewardGiver(-1)
 features_extract_func = features_extract_func_ac
 features_normalize_func = features_normalize_func_ac

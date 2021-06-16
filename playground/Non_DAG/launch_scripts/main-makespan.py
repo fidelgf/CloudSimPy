@@ -13,7 +13,7 @@ from playground.Non_DAG.algorithm.tetris import Tetris
 from playground.Non_DAG.algorithm.first_fit import FirstFitAlgorithm
 from playground.Non_DAG.algorithm.DeepJS.DRL import RLAlgorithm
 from playground.Non_DAG.algorithm.DeepJS.agent import Agent
-from playground.Non_DAG.algorithm.DeepJS.brain import Brain
+from playground.Non_DAG.algorithm.DeepJS.brain import Brain,LSTMBrain
 
 from playground.Non_DAG.algorithm.DeepJS.reward_giver import MakespanRewardGiver
 
@@ -34,6 +34,7 @@ n_episode = 12
 jobs_csv = '../jobs_files/jobs.csv'
 
 brain = Brain(6)
+#brain = LSTMBrain(6)
 reward_giver = MakespanRewardGiver(-1)
 features_extract_func = features_extract_func
 features_normalize_func = features_normalize_func

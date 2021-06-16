@@ -59,3 +59,21 @@ class BrainSmall(tf.keras.Model):
         state = self.dense_3(state)
         state = self.dense_4(state)
         return tf.expand_dims(tf.squeeze(state, axis=-1), axis=0)
+
+class LSTMBrain(tf.keras.Model):
+    name = 'LSTMBrain'
+
+    def __init__(self, state_size):
+        super().__init__()
+        self.dense_1 = tf.keras.layers.LSTM(units=3, input_shape=(state_size,1), return_sequences=True)
+        self.dense_2 = tf.keras.layers.LSTM(units=3)
+        self.dense_3 = tf.keras.layers.Dense(1)
+
+    def call(self, state):
+        state = np.reshape(state, (state.shape[0], state.shape[1], 1))
+        state = self.dense_1(state)
+        state = self.dense_2(state)
+        state = self.dense_3(state)
+        #print("state: {}".format(state))
+        #print("salida: {}".format(tf.expand_dims(tf.squeeze(state, axis=-1), axis=0)))
+        return tf.expand_dims(tf.squeeze(state, axis=-1), axis=0)
