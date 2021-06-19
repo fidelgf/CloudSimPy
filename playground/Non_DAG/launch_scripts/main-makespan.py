@@ -30,7 +30,7 @@ tf.random.set_random_seed(41)
 machines_number = 5
 jobs_len = 10
 n_iter = 100
-n_episode = 12
+n_episode = 500
 jobs_csv = '/content/CloudSimPy2/playground/Non_DAG/jobs_files/jobs.csv'
 
 brain = Brain(6)
@@ -104,7 +104,7 @@ for itr in range(n_iter):
     toc = time.time()
 
     print(np.mean(makespans), toc - tic, np.mean(average_completions), np.mean(average_slowdowns))
-
+    print(makespans)
     all_observations = []
     all_actions = []
     all_rewards = []
@@ -121,6 +121,9 @@ for itr in range(n_iter):
         all_actions.append(actions)
         all_rewards.append(rewards)
 
+    get_rewards = [np.mean(i) for i in all_rewards]
+    print(get_rewards)
+    
     all_q_s, all_advantages = agent.estimate_return(all_rewards)
 
     agent.update_parameters(all_observations, all_actions, all_advantages)
