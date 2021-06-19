@@ -31,7 +31,7 @@ machines_number = 5
 jobs_len = 10
 n_iter = 100
 n_episode = 12
-jobs_csv = '../jobs_files/jobs.csv'
+jobs_csv = '/content/CloudSimPy2/playground/Non_DAG/jobs_files/jobs.csv'
 
 brain = Brain(6)
 #brain = LSTMBrain(6)
