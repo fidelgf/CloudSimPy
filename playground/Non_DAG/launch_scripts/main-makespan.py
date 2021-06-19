@@ -5,7 +5,7 @@ import tensorflow as tf
 from multiprocessing import Process, Manager
 import sys
 
-sys.path.append('..')
+sys.path.append('/content/CloudSimPy2')
 
 from core.machine import MachineConfig
 from playground.Non_DAG.algorithm.random_algorithm import RandomAlgorithm
