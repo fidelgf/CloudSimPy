@@ -27,10 +27,10 @@ os.environ['CUDA_VISIBLE_DEVICES'] = ''
 np.random.seed(41)
 tf.random.set_random_seed(41)
 # ************************ Parameters Setting Start ************************
-machines_number = 3
-jobs_len = 6
+machines_number = 2
+jobs_len = 4
 n_iter = 20
-n_episode = 15
+n_episode = 25
 jobs_csv = '/content/CloudSimPy2/playground/Non_DAG/jobs_files/jobs.csv'
 
 brain = Brain(6)
