@@ -33,8 +33,11 @@ class Brain(tf.keras.Model):
         #self.dense_3 = tf.keras.layers.Dense(18, activation=tf.tanh)
         #self.dense_4 = tf.keras.layers.Dense(9, activation=tf.tanh)
         #self.dense_5 = tf.keras.layers.Dense(1)
-        self.denseltsm_1 = tf.keras.layers.LSTM(units=3, input_shape=(state_size,1), activation=tf.tanh)
-        self.denseltsm_2 = tf.keras.layers.Dense(units=1)
+        self.denseltsm_1 = tf.keras.layers.LSTM(units=3, input_shape=(state_size,1), return_sequences=True)
+        self.denseltsm_2 = tf.keras.layers.LSTM(units=3, return_sequences=True)
+        self.denseltsm_3 = tf.keras.layers.LSTM(units=3, return_sequences=True)
+        self.denseltsm_4 = tf.keras.layers.LSTM(units=3)
+        self.denseltsm_5 = tf.keras.layers.Dense(units=1)
 
     def call(self, state):
         #state = self.dense_1(state)
@@ -44,7 +47,10 @@ class Brain(tf.keras.Model):
         #state = self.dense_5(state)
         state = np.reshape(state, (state.shape[0],state.shape[1], 1))
         state = self.denseltsm_1(state)
-        state = self.denseltsm_2(state)                            
+        state = self.denseltsm_2(state)
+        state = self.denseltsm_3(state)
+        state = self.denseltsm_4(state)
+        state = self.denseltsm_5(state)
         return tf.expand_dims(tf.squeeze(state, axis=-1), axis=0)
 
 
