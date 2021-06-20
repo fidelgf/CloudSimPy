@@ -33,7 +33,7 @@ class Brain(tf.keras.Model):
         #self.dense_3 = tf.keras.layers.Dense(18, activation=tf.tanh)
         #self.dense_4 = tf.keras.layers.Dense(9, activation=tf.tanh)
         #self.dense_5 = tf.keras.layers.Dense(1)
-        self.denseltsm_1 = tf.keras.layers.LSTM(units=4, input_shape=(state_size,1))
+        self.denseltsm_1 = tf.keras.layers.LSTM(units=3, input_shape=(state_size,1), activation=tf.tanh)
         self.denseltsm_2 = tf.keras.layers.Dense(units=1)
 
     def call(self, state):
