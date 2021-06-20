@@ -30,7 +30,7 @@ tf.random.set_random_seed(41)
 machines_number = 3
 jobs_len = 6
 n_iter = 20
-n_episode = 25
+n_episode = 15
 jobs_csv = '/content/CloudSimPy2/playground/Non_DAG/jobs_files/jobs.csv'
 
 brain = Brain(6)
